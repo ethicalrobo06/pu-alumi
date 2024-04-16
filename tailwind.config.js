@@ -6,7 +6,11 @@ export default {
 
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'naac': "url('./src/assets/naac.jpeg')",
+      },
+    },
   },
   plugins: [
 

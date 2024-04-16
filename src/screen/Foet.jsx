@@ -1,6 +1,5 @@
 import React from 'react'
 import Institute from '../components/Institute'
-import Events from '../components/Event'
 import event1 from '../assets/foetevt1.webp'
 import event2 from '../assets/foetevt2.webp'
 import event3 from '../assets/foetevt3.webp'

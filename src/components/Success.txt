@@ -1,0 +1,55 @@
+import React, { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import { Auth } from "@supabase/auth-ui-react"
+import { ThemeSupa } from '@supabase/auth-ui-shared'
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+  "https://cervmkwebrpczjfzgwfz.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNlcnZta3dlYnJwY3pqZnpnd2Z6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTMyMTczNDcsImV4cCI6MjAyODc5MzM0N30.u0zee6FMwq4I1w00Pr47uMz14z1oAtCi9h-nVS_EMrM"
+)
+
+const Success = () => {
+  const [user, setUser] = useState({})
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    async function getUserData() {
+      await supabase.auth.getUser().then((value) => {
+        if (value.data?.user) {
+          console.log(value.data.user)
+          setUser(value.data.user);
+        }
+      })
+    }
+    getUserData()
+  }, [])
+
+
+  async function signOutUser() {
+    const { error } = await supabase.auth.signOut()
+    navigate('/')
+  }
+  return (
+    <div>
+      <header>
+        {
+          Object.keys(user).length !== 0 ?
+            <>
+              <h1 className="text-4xl text-green-800">
+                Success
+              </h1>
+              <button onClick={() => signOutUser()}>Sign out</button>
+            </>
+            :
+            <>
+              <h1>User is not login in</h1>
+              <button className="border-1 border-green-500" onClick={() => { navigate('/') }}>Go back Home</button>
+            </>
+        }
+      </header>
+    </div>
+  )
+}
+
+export default Success

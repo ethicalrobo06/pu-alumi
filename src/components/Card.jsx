@@ -11,7 +11,7 @@ const Card = ({ title, content, className }) => {
             <div className=" text-left ">
                 {
                     content.map((item, i) => (
-                        <li key={i} className='text-white'>{item}</li>
+                        <li key={i} className=' text-white'>{item}</li>
                     ))
                 }
             </div >
