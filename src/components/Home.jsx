@@ -3,11 +3,12 @@ import Header from './Header'
 import SliderComponent from './SlideComponent'
 import Card from './Card'
 import Footer from './Footer'
-import Placement from './Placement'
 import { useNavigate } from 'react-router-dom'
 import { Auth } from "@supabase/auth-ui-react"
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { createClient } from '@supabase/supabase-js'
+import Recruiter from './Recruiter'
+import Placement from './Placement'
 
 const supabase = createClient(
     "https://cervmkwebrpczjfzgwfz.supabase.co",
@@ -33,19 +34,6 @@ function Home() {
         const { error } = await supabase.auth.signOut()
         navigate('/')
     }
-
-    // useEffect(() => {
-    //     if (Object.keys(user).length === 0) {
-    //         alert('User is not logged in')
-    //     }
-    //
-    // if (Object.keys(user).length !== 0) {
-    //     alert("Success - User is logged in.");
-    // } else {
-    //     alert("User is not logged in.");
-    // }
-    // }, [user]); // This effect depends on the user state.
-
 
     const data = [
         {
@@ -219,15 +207,17 @@ function Home() {
     return (
         <>
             <Header />
-            <header>
+            <header className=' absolute w-screen '>
                 {
                     Object.keys(user).length !== 0 ?
                         <>
-                            <button onClick={() => signOutUser()}>Sign out</button>
+                            <button
+                                className='hover:text-red-600 hover:bg-white hover:border-red-600 border-2  text-white p-1 bg-red-600 rounded-lg'
+                                onClick={() => signOutUser()}>Sign out</button>
                         </>
                         :
                         <>
-                            <button className="border-1 border-green-500" onClick={() => { navigate('/') }}>Go back Home</button>
+                            <button className="border-2  border-green-500 left-[88rem] top-[-28px] z-1 absolute" onClick={() => { navigate('/') }}>Sign Out</button>
                         </>
                 }
             </header>
@@ -244,6 +234,14 @@ function Home() {
                 </div>
             </div >
             <Placement />
+            <h1 className='text-[36px] pt-[7rem] pb-4 font-bold'>
+                Top
+                <span className='pl-2 font-medium text-[rgb(3,78,162)]'>
+                    Recruiters
+                </span>
+
+            </h1>
+            <Recruiter />
             <Footer />
         </>
     )

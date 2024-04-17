@@ -9,6 +9,7 @@ export default {
     extend: {
       backgroundImage: {
         'naac': "url('./src/assets/naac.jpeg')",
+        'banner':"url('./src/assets/placement.jpg')"
       },
     },
   },
