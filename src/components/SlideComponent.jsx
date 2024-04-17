@@ -48,7 +48,7 @@ const SliderComponent = () => {
 
     return (
 
-        <div className='pl-[7rem]'>
+        <div className='pl-[7rem] z-0'>
             <SimpleImageSlider
                 width={1186}
                 height={582}

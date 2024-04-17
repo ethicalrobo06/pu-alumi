@@ -3,11 +3,11 @@ import Header from './Header'
 import SliderComponent from './SlideComponent'
 import Card from './Card'
 import Footer from './Footer'
+import Placement from './Placement'
 import { useNavigate } from 'react-router-dom'
 import { Auth } from "@supabase/auth-ui-react"
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { createClient } from '@supabase/supabase-js'
-import Placement from './Placement'
 
 const supabase = createClient(
     "https://cervmkwebrpczjfzgwfz.supabase.co",

@@ -1,45 +1,21 @@
 import React from 'react'
 import image1 from '../assets/organization.jpg';
 import image2 from '../assets/package.jpg';
+import paypal from '../assets/company/paypal.jpg'
+import pratilipi from '../assets/company/pratilipi.jpg'
+import servicenow from '../assets/company/servicenow.jpg'
+import sifive from '../assets/company/sifive.jpg'
+import tas from '../assets/company/tas.jpg'
+import tcs from '../assets/company/tcs.jpg'
+import mahindra from '../assets/company/mahindra.jpg'
+import tek from '../assets/company/tek.jpg'
+import watchguard from '../assets/company/watchguard.jpg'
+import wipro from '../assets/company/wipro.jpg'
+import zs from '../assets/company/zs.jpg'
 // import banner from '../assets/placement1.jpg'
-import { Carousel } from 'react-multi-carousel';
-
-const companyLogos = [
-    { name: "Justdial", url: image1 },
-    { name: "nagarro", url: image1 },
-    { name: "servicenow", url: image1 },
-    { name: "L&T Technology Services", url: image1 },
-    { name: "PayPal", url: image1 },
-    { name: "KPIT", url: image1 },
-    { name: "Microsoft", url: image1 },
-    { name: "NTT DATA", url: image1 },
-    { name: "Pratilipi", url: image1 },
-    { name: "SiFive", url: image1 },
-    { name: "TATA", url: image1 },
-    { name: "ADVANCED SYSTEMS", url: image1 },
-    { name: "TATA CONSULTANCY SERVICES", url: image1 },
-];
-
-const responsive = {
-    superLargeDesktop: {
-        breakpoint: { max: 4000, min: 3000 },
-        items: 5,
-    },
-    desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 3,
-    },
-    tablet: {
-        breakpoint: { max: 1024, min: 464 },
-        items: 2,
-    },
-    mobile: {
-        breakpoint: { max: 464, min: 0 },
-        items: 1,
-    },
-};
 
 function Placement() {
+
     const details = [
         {
             image: image1,
@@ -49,7 +25,7 @@ function Placement() {
         },
         {
             image: image2,
-            title: '₹13',
+            title: '₹10',
             package: 'LPA',
             content: 'Average Package',
         },
@@ -67,7 +43,12 @@ function Placement() {
         },
     ]
 
-
+    //     const companies = [
+    //         {
+    //             [image: ''],
+    //         [image:'']
+    // },
+    //     ]
     return (
         <>
             <div className='font-[Poppins]'>
@@ -91,25 +72,13 @@ function Placement() {
                     {/* image */}
                 </div>
             </div >
-
-
-            <Carousel
-                responsive={responsive}
-                infinite={true}
-                autoPlay={true}
-                autoPlaySpeed={3000}
-                keyBoardControl={true}
-                showDots={false}
-                containerClass="carousel-container"
-                removeArrowOnDeviceType={["tablet", "mobile"]}
-                dotListClass="custom-dot-list-style"
-            >
+            {/* <div>
                 {companyLogos.map((logo, index) => (
                     <div key={index} className="px-4">
-                        <Image src={logo.url} alt={logo.name} />
+                        <Image src={logo.url} alt='' />
                     </div>
                 ))}
-            </Carousel>
+            </div> */}
         </>
     )
 }
